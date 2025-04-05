@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Serving | Login</title>
+</head>
+<body>
+    <div id="loginBG">
+        <img/>
+        <div id="loginOptions">
+            <button>Login</button>
+            <button>Sign Up</button>
+        </div>
+
+        <div id="loginDiv">
+            <form class="loginForm" action="/verify" method="post">
+                <input type="number" name="mobileNumber" id="mobileNumberInput" class="loginInput">
+                <input type="password" name="password" id="passwordInput" class="loginInput">
+            </form>
+        </div>
+        <div id="signupDiv">
+            <form class="loginForm" action="/signup" method="post">
+                <input type="text" name="firstName" id="firstNameInput" class="loginInput">
+                <input type="text" name="lastName" id="lastNameInput" class="loginInput">
+                <input type="number" name="mobileNumber" id="mobileNumberInput" class="loginInput">
+                <input type="password" name="password" id="passwordInput" class="loginInput">
+                <input type="password" name="confirmPassword" id="confirmPasswordInput" class="loginInput">
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>
