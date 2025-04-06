@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Second Serving | Home</title>
+  <link rel="stylesheet" href="/home.css" />
+</head>
+<body>
+  <div class="navbar">
+    <img src="/logo.png" alt="Logo" class="logo" />
+    <a href="/settings" class="nav-button">Settings</a>
+  </div>
+
+  <h1 class="heading">Meal Dispensaries Near You</h1>
+
+  <div class="card-list">
+    <div class="card">
+      <p class="address">120 Elm St, San Diego</p>
+      <p class="availability">Meal boxes available: 24</p>
+    </div>
+    <div class="card">
+      <p class="address">1501 Imperial Ave, San Diego</p>
+      <p class="availability">Meal boxes available: 15</p>
+    </div>
+    <div class="card">
+      <p class="address">3737 Fifth Ave #203, San Diego</p>
+      <p class="availability">Meal boxes available: 32</p>
+    </div>
+  </div>
+
+  <div class="qr-toggle">
+    <div id="qr-code" class="qr-code" style="display: none;"></div>
+    <button onclick="toggleQRCode()" class="show-qr-button">Show QR</button>
+  </div>
+
+  <div class="code-limit">
+    <p>Number of meals left today: 2</p>
+  </div>
+
+  <script src="/home.js"></script>
+</body>
+</html>

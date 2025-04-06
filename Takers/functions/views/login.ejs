@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Serving | Login</title>
+
+    <link rel="stylesheet" href="/login.css">
+    <link rel="stylesheet" href="/common.css">
+</head>
+<body>
+    <div id="loginBG">
+        <a href="/login"><img id="logo" src="/logo.png"/></a>
+        <div id="loginOptions">
+            <button onclick="revealLogin()" class="loginOptionsButton">LOGIN</button>
+            <button onclick="revealSignUp()" class="loginOptionsButton">SIGN UP</button>
+        </div>
+
+        <div id="loginDiv">
+            <form class="loginForm" action="/login" method="post">
+                <input type="number" name="mobileNumber" id="mobileNumberInput" class="loginInput" placeholder="Enter mobile number">
+                <input type="password" name="password" id="passwordInput" class="loginInput" placeholder="Enter password">
+                <input type="submit" name="submit" id="submitInput" class="submitInput" value="LOGIN">
+            </form>
+        </div>
+        <div id="signupDiv">
+            <input required form="signupForm" type="tel" name="mobileNumber" id="mobileNumberInputSignup" class="loginInput" placeholder="Enter mobile number">
+            <button id="verifyMobileButton" disabled>VERIFY</button>
+            <span id="incorrectOTPMsg">Incorrect OTP</span>
+
+            <form id="signupForm" class="loginForm" action="/signup" method="post">
+                <input required type="text" name="firstName" id="firstNameInput" class="loginInput" placeholder="Enter first name">
+                <input type="text" name="lastName" id="lastNameInput" class="loginInput" placeholder="Enter last name">
+                <input required type="password" name="password" id="passwordInputSignup" class="loginInput" placeholder="Enter password">
+                <input required type="password" name="confirmPassword" id="confirmPasswordInputSignup" class="loginInput" placeholder="Confirm password">
+                <input type="submit" name="submit" id="submitInputSignup" class="submitInput" value="SIGN UP" disabled>
+            </form>
+        </div>
+
+    </div>
+
+    <script src="/login.js"></script>
+    <script type="module" src="/verifyMobile.js"></script>
+</body>
+</html>
