@@ -1,0 +1,93 @@
+body {
+    background-color: #1C1D1F;
+    color: #F8F9FA;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: 2px solid #A3C9A8;
+    background-color: #2E3239;
+  }
+  
+  .logo {
+    height: 80px;
+    margin-right: 15px;
+  }
+  
+  .nav-button {
+    background: none;
+    border: none;
+    color: #A3C9A8;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: bold;
+  }
+  
+  .settings-container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .profile-section {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #A3C9A8;
+    margin-bottom: 10px;
+  }
+  
+  .username {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .info-section {
+    background-color: #2E3239;
+    padding: 20px;
+    border-radius: 14px;
+    border: 2px solid #A3C9A8;
+    margin-bottom: 20px;
+  }
+  
+  .info-section p {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  .update-location-button,
+  .logout-button {
+    background-color: #A3C9A8;
+    color: #1C1D1F;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 14px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .update-location-button:hover,
+  .logout-button:hover {
+    background-color: #8AB693;
+  }
+  
+  .logout-section {
+    text-align: center;
+  }

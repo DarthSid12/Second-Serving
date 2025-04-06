@@ -1,0 +1,99 @@
+#loginBG {
+    background-color: #0C0908;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo {
+    width: 300px;
+}
+
+#loginOptions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.loginOptionsButton {
+    background-color: transparent;
+    border: 2px solid #42D42D;
+    width: 60%;
+    height: 30px;
+    margin: 5px 0;
+    color: #42d42d;
+}
+
+#loginDiv {
+    width: 100%;
+    display: none;
+}
+
+#signupDiv {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+#incorrectOTPMsg {
+    color: red;
+    font-family: sans-serif;
+    font-size: 13px;
+    padding: 3px;
+    display: none;
+}
+
+.loginForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#signupForm {
+    display: none;
+}
+
+#verifyMobileButton {
+    background-color: transparent;
+    border: 2px solid #42D42D;
+    width: 60%;
+    height: 30px;
+    margin: 5px 0;
+    color: #42d42d;
+}
+
+.loginInput {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #42D42D;
+    width: 60%;
+    height: 30px;
+    margin: 5px 0;
+    color: #32827A;
+    border-radius: 0;
+    transition: scale 0.2s ease-in-out;
+    padding: 2px;
+}
+
+.loginInput:focus {
+    outline: none;
+    scale: 1.05;
+}
+
+.submitInput {
+    background-color: transparent;
+    border: 2px solid #42D42D;
+    width: 60%;
+    height: 30px;
+    margin: 15px 0;
+    color: #42d42d;
+}
+
