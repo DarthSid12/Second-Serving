@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "426857757301",
+    "project_id": "second-srving",
+    "storage_bucket": "second-srving.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426857757301:android:6a374445f79ced471a963c",
+        "android_client_info": {
+          "package_name": "com.e"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0SJk9T6JD_9ACpNYJnSPZTkz2zwOYo0s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
