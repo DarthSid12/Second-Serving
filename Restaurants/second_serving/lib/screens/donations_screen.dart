@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:second_serving/helper/colors.dart';
 import 'package:second_serving/helper/user.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class DonationsScreen extends StatefulWidget {
   final AppUser user;
@@ -40,7 +41,8 @@ class _DonationsScreenState extends State<DonationsScreen> {
     final today = DateTime.now();
 
     return Scaffold(
-      
+      backgroundColor: Color(0xFF1C1D1F), // Slate black background
+     
       body: FutureBuilder<List<Donation>>(
         future: _donationsFuture,
         builder: (context, snapshot) {
@@ -70,12 +72,26 @@ class _DonationsScreenState extends State<DonationsScreen> {
             padding: const EdgeInsets.all(16),
             children: [
               if (active.isNotEmpty) ...[
-                const Text("Active Donations", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                Text(
+                  "Active Donations",
+                  style: GoogleFonts.nunitoSans(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFFF8F9FA), // Nearly white text
+                  ),
+                ),
                 const SizedBox(height: 10),
                 ...active.map((d) => DonationCard(donation: d, isActive: true)),
               ],
               const SizedBox(height: 30),
-              const Text("Past Donations", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+              Text(
+                "Past Donations",
+                style: GoogleFonts.nunitoSans(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFFF8F9FA), // Nearly white text
+                ),
+              ),
               const SizedBox(height: 10),
               ...past.map((d) => DonationCard(donation: d, isActive: false)),
             ],
@@ -98,20 +114,57 @@ class DonationCard extends StatelessWidget {
 
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8),
-      color: isActive ? MyColors.primary: Colors.grey,
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("Food: ${donation.description}", style: const TextStyle(fontWeight: FontWeight.bold)),
-            Text("Feeds: ${donation.feedCount} people"),
-            Text("Expires: ${formatter.format(donation.expirationDate)}"),
-            if (isActive) Text("Driver: ${donation.driverName}"),
-            Text("Pickup Time: ${formatter.format(donation.donationDate)}"),
-            Text("Address: ${donation.address.address1}, ${donation.address.city}, ${donation.address.state}"),
-          ],
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14),
+        side: BorderSide(
+          color: Color(0xFFA3C9A8), // Sage green for active, olive gray for past
+          width: 2,
         ),
+      ),
+      color:  Color(0xFF2E3239), // Soft mint green for active, olive gray for past
+      child: Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+        Text(
+          "Food: ${donation.description}",
+          style: GoogleFonts.nunitoSans(
+          fontWeight: FontWeight.bold,
+          fontSize: 16,
+          color:Color(0xFFF8F9FA), // Slate black for active, nearly white for past
+          ),
+        ),
+        SizedBox(height: 8),
+        Text(
+          "Feeds: ${donation.feedCount} people",
+          style: TextStyle(fontSize: 14, color: Color(0xFFF8F9FA)),
+        ),
+        Text(
+          "Expires: ${formatter.format(donation.expirationDate)}",
+          style: TextStyle(fontSize: 14, color: Color(0xFFF8F9FA)),
+        ),
+        if (isActive)
+          Text(
+          "Driver: ${donation.driverName}",
+          style: TextStyle(fontSize: 14, color: Color(0xFFF8F9FA)),
+          ),
+        if(isActive)
+          Text(
+            "Pickup Time: ${formatter.format(donation.donationDate)}",
+            style: TextStyle(fontSize: 14, color: Color(0xFFF8F9FA)),
+          ),
+        if(!isActive)
+          Text(
+            "Donation date: ${formatter.format(donation.donationDate)}",
+            style: TextStyle(fontSize: 14, color: Color(0xFFF8F9FA)),
+          ),
+        Text(
+          "Address: ${donation.address.address1}, ${donation.address.city}, ${donation.address.state}",
+          style: TextStyle(fontSize: 14, color: Color(0xFFF8F9FA)),
+        ),
+        ],
+      ),
       ),
     );
   }

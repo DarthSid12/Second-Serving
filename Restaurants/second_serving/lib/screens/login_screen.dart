@@ -4,8 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_place_picker/flutter_place_picker.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:second_serving/helper/colors.dart';
 import 'package:second_serving/helper/user.dart';
@@ -199,13 +198,14 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF1C1D1F), // Slate black background
       body: Center(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: EdgeInsets.all(24),
           child: Form(
             key: _formKey,
-            child: ListView(
-              shrinkWrap: true,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Center(
                   child: CircleAvatar(
@@ -215,50 +215,74 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 SizedBox(height: 20),
-                Text(
-                  (isLogin ? "Login" : "Sign Up").toUpperCase(),
-                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                Center(
+                  child: Text(
+                    (isLogin ? "Login" : "Sign Up").toUpperCase(),
+                    style: GoogleFonts.nunitoSans(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFFF8F9FA), // Nearly white text
+                    ),
+                  ),
                 ),
+                SizedBox(height: 20),
                 TextFormField(
                   controller: emailController,
-                  decoration: InputDecoration(labelText: 'Email'),
+                  decoration: InputDecoration(
+                    labelText: 'Email',
+                    prefixIcon: Icon(Icons.email, color: Color(0xFFA3C9A8)), // Sage green
+                    filled: true,
+                    fillColor: Color(0xFF2E3239), // Olive gray input background
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(14),
+                      borderSide: BorderSide.none,
+                    ),
+                    labelStyle: TextStyle(color: Color(0xFFF8F9FA).withOpacity(0.7)), // Muted white
+                  ),
                   keyboardType: TextInputType.emailAddress,
+                  style: TextStyle(color: Color(0xFFF8F9FA)), // Nearly white text
                   validator: (val) => val!.isEmpty ? 'Enter your email' : null,
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: 10),
                 TextFormField(
                   controller: passwordController,
                   decoration: InputDecoration(
                     labelText: 'Password',
+                    prefixIcon: Icon(Icons.lock, color: Color(0xFFA3C9A8)), // Sage green
                     suffixIcon: IconButton(
                       icon: Icon(
-                          hidden ? Icons.visibility : Icons.visibility_off),
+                        hidden ? Icons.visibility : Icons.visibility_off,
+                        color: Color(0xFFA3C9A8), // Sage green
+                      ),
                       onPressed: () {
                         setState(() {
                           hidden = !hidden;
                         });
                       },
                     ),
+                    filled: true,
+                    fillColor: Color(0xFF2E3239), // Olive gray input background
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(14),
+                      borderSide: BorderSide.none,
+                    ),
+                    labelStyle: TextStyle(color: Color(0xFFF8F9FA).withOpacity(0.7)), // Muted white
                   ),
                   obscureText: hidden,
+                  style: TextStyle(color: Color(0xFFF8F9FA)), // Nearly white text
                   validator: (val) =>
                       val!.length < 6 ? 'Minimum 6 characters' : null,
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: 10),
                 if (!isLogin) ...[
                   TextFormField(
                     controller: nameController,
-                    decoration:
-                        InputDecoration(labelText: 'Name/ Restaurant name'),
+                    decoration: InputDecoration(
+                        labelText: 'Name/Restaurant Name',
+                        prefixIcon: Icon(Icons.person)),
                     validator: (val) => val!.isEmpty ? 'Enter your name' : null,
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
+                  SizedBox(height: 10),
                   TextFormField(
                     controller: dobController,
                     readOnly: true,
@@ -389,21 +413,40 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ],
                 SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: loading ? null : submit,
-                  child: Text(isLogin ? 'Login' : 'Sign Up'),
+                Center(
+                  child: ElevatedButton(
+                    onPressed: loading ? null : submit,
+                    child: Text(
+                      isLogin ? 'Login' : 'Sign Up',
+                      style: GoogleFonts.nunitoSans(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF1C1D1F), // Slate black text
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFFA3C9A8), // Sage green
+                      padding: EdgeInsets.symmetric(vertical: 14, horizontal: 32),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                    ),
+                  ),
                 ),
-                TextButton(
-                  onPressed: () => setState(() => isLogin = !isLogin),
-                  child: Text(isLogin
-                      ? "Don't have an account? Sign Up"
-                      : "Already have an account? Login"),
+                SizedBox(height: 10),
+                Center(
+                  child: TextButton(
+                    onPressed: () => setState(() => isLogin = !isLogin),
+                    child: Text(
+                      isLogin
+                          ? "Don't have an account? Sign Up"
+                          : "Already have an account? Login",
+                      style: GoogleFonts.nunitoSans(
+                        color: Color(0xFFA3C9A8), // Sage green
+                      ),
+                    ),
+                  ),
                 ),
-                // ElevatedButton.icon(
-                //   onPressed: handleGoogleSignIn,
-                //   icon: Icon(Icons.login),
-                //   label: Text('Continue with Google'),
-                // ),
               ],
             ),
           ),

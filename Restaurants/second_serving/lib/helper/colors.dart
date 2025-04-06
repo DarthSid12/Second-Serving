@@ -5,7 +5,8 @@ class MyColors{
   static final Color accentGreen = Color(0xFF42D42D);
   static final Color textColor = Color(0xFFFAFAFF);
   static final Color primary = Color(0xFF32827A);
-
+  // static final Color primary = Color(0xFF32827A);
+  
   static final List<String> driverNames = [
     'John Doe',
     'Jane Smith',

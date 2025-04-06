@@ -1,8 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:second_serving/helper/colors.dart';
 import 'package:second_serving/helper/user.dart';
 import 'package:second_serving/screens/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'profile_screen.dart';
 import 'donations_screen.dart';
 import 'create_donation.dart';
@@ -78,12 +80,18 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF1C1D1F), // Slate black background
       appBar: AppBar(
-        title: Text('Home'),
-        backgroundColor: Color(0xFF32827A),
+        title: Text(
+          _selectedIndex == 0 ? 'Profile' : 'Donations',
+          style: GoogleFonts.nunitoSans(color: Color(0xFFF8F9FA)), // Nearly white text
+        ),
+        backgroundColor: Color(0xFF2E3239), // Olive gray app bar
+        elevation: 0,
+        iconTheme: IconThemeData(color: Color(0xFFF8F9FA)),
         actions: [
           IconButton(
-            icon: Icon(Icons.logout),
+            icon: Icon(Icons.logout, color: Color(0xFFF8F9FA)), // Nearly white
             onPressed: () async {
               // Clear SharedPreferences
               final prefs = await SharedPreferences.getInstance();
@@ -102,8 +110,8 @@ class _HomePageState extends State<HomePage> {
       body: _screens[_selectedIndex], // Display the selected tab's screen
       floatingActionButton: FloatingActionButton(
         onPressed: _onPlusButtonPressed,
-        backgroundColor: Color(0xFF42D42D),
-        child: Icon(Icons.add),
+        backgroundColor: Color(0xFFA3C9A8), // Sage green
+        child: Icon(Icons.add, size: 28, color: Color(0xFF1C1D1F)), // Slate black
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomNavigationBar(
@@ -119,9 +127,10 @@ class _HomePageState extends State<HomePage> {
             label: 'Donations',
           ),
         ],
-        backgroundColor: Color(0xFF0C0908),
-        selectedItemColor: Color(0xFF42D42D),
-        unselectedItemColor: Color(0xFFFAFAFF),
+        backgroundColor: Color(0xFF2E3239), // Olive gray
+        selectedItemColor: Color(0xFFA3C9A8), // Sage green
+        unselectedItemColor: Color(0xFFF8F9FA).withOpacity(0.5), // Muted white
+        type: BottomNavigationBarType.fixed,
       ),
     );
   }
